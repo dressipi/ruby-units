@@ -24,7 +24,7 @@ class String
   end
   
   #needed for compatibility with Rails, which defines a String.from method  
-  if self.public_instance_methods.include? 'from'
+  if self.public_instance_methods.include?( 'from') || self.public_instance_methods.include?( :from)
     alias :old_from :from
   end 
   

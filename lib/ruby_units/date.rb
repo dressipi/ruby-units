@@ -36,7 +36,7 @@ class Date
   end
   alias :unit :to_unit
   
-  unless Date.instance_methods.include?(:to_time)
+  unless Date.instance_methods.include?(:to_time) || Date.instance_methods.include?('to_time')
     def to_time
       Time.local(*ParseDate.parsedate(self.to_s))
     end
@@ -48,7 +48,7 @@ class Date
     self.to_s
   end
   
-  unless Date.instance_methods.include?(:to_date)
+  unless Date.instance_methods.include?(:to_date) || Date.instance_methods.include?('to_date')
     def to_date
       Date.civil(self.year, self.month, self.day)
     end
